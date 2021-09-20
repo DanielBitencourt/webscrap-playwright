@@ -4,8 +4,9 @@ with sync_playwright() as p:
     browser = p.firefox.launch()
     page = browser.new_page()
     listalinks = []
-
-    for c in range(101, 102+1):   # 1585pgs
+    # Este range é setado manualmente, significa a quantidade de páginas/imagens que serão baixadas.
+    # O processo é um pouco lento, então os downloads são feitos por partes.
+    for c in range(101, 102+1):   # 1585pgs max
         print(c)
         try:
             page.goto('https://wallpaperscraft.com/catalog/nature/1920x1080' + f'/page{c}')
@@ -30,7 +31,7 @@ with sync_playwright() as p:
         for c in listalinks:
             binarios = page.goto(c).body()
             nomeimage = page.url
-            nomeimage = nomeimage[48:]
+            nomeimage = nomeimage[48:] # Cada imagem recebe um nome único, derivado de seu próprio link.
             caminho = r'C:\Users\Daniel\Desktop\wallpaperscraft.com nature\\'
             open(caminho + nomeimage, 'wb').write(binarios)
     except:
