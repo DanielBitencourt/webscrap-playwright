@@ -1,2 +1,1 @@
-Meus wallpapers do desktop começaram a se repetir. Então fiz o scraper usando a biblioteca 'playwright', para download de novos wallpapers.
-Tentei fazer utilizando a biblioteca 'requests', porém o site tem um mecanismo anti-scraping onde me impossibilitou de usar esta biblioteca.
+Downloader de imagens feito com a biblioteca "playwright". O site passuía um mecanismo anti-scraping, o que me impossibilitou usar a biblioteca "requests".
